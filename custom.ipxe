@@ -11,9 +11,8 @@ initrd MacriumRescue.iso
 chain memdisk iso raw ||
 goto start
 :mtboot
-kernel https://boot.netboot.xyz/memdisk iso raw
 initrd https://andychan.dedyn.io/mtboot.iso
-boot ||
+chain memdisk iso raw ||
 goto start
 :dban-2.3.0_586
 initrd dban-2.3.0_586.iso
