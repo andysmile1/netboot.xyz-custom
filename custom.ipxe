@@ -13,8 +13,7 @@ goto start
 :mtboot
 initrd https://andychan.dedyn.io/mtboot.iso
 chain memdisk iso raw
-boot ||
-goto start
+boot || goto custom_exit
 :dban-2.3.0_586
 initrd dban-2.3.0_586.iso
 chain memdisk iso raw ||
