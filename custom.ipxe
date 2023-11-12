@@ -1,12 +1,24 @@
 #!ipxe
-###
-### netboot.xyz-custom menu
-###
-
 :start
-echo Hello world!
-sleep 10
-goto custom_exit
-
-:custom_exit
-exit 0
+menu Please select an application to boot:
+item --key m MacriumRescue Macrium Rescue
+item --key t mtboot MiniTool Partition
+item --key d dban-2.3.0_586 DBan
+item --key w Win10XPE_x64 Win10XPE
+choose --default MacriumRescue --timeout 5000 target && goto ${target}
+:MacriumRescue
+initrd MacriumRescue.iso
+chain memdisk iso raw ||
+goto start
+:mtboot
+initrd https://portland-my.sharepoint.com/personal/ccchan2238-c_my_cityu_edu_hk/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2Fccchan2238%2Dc%5Fmy%5Fcityu%5Fedu%5Fhk%2FDocuments%2FNetboot%2Fmtboot%2Eiso
+chain memdisk iso raw ||
+goto start
+:dban-2.3.0_586
+initrd dban-2.3.0_586.iso
+chain memdisk iso raw ||
+goto start
+:Win10XPE_x64
+initrd Win10XPE_x64.iso
+chain memdisk iso raw ||
+goto start
