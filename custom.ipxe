@@ -25,7 +25,7 @@ boot || goto custom_exit
 
 :option_two
 initrd https://andychan.dedyn.io/mtboot.iso
-chain memdisk iso raw || goto failed
+chain https://boot.netboot.xyz/memdisk || goto failed
 goto start
 
 :option_three
