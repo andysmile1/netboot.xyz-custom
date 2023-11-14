@@ -25,7 +25,8 @@ boot || goto custom_exit
 
 :option_two
 initrd https://andychan.dedyn.io/mtboot.iso
-chain memdisk iso raw || goto custom_exit
+chain memdisk iso raw || goto failed
+goto start
 
 :option_three
 echo Chains into another menu...
