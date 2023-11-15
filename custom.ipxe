@@ -18,10 +18,9 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernal http://path.to/vmlinuz
-initrd http://path.to/initrd
-imgargs vmlinuz put_kernel_img_args_here
-boot || goto custom_exit
+kernel vmlinuz-3.16.0-rc4 bootfile=http://boot.ipxe.org/demo/ fastboot initrd=initrd.img
+initrd initrd.img
+boot 
 
 :option_two
 initrd https://andychan.dedyn.io/mtboot.iso
