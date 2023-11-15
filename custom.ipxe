@@ -24,7 +24,8 @@ imgargs vmlinuz put_kernel_img_args_here
 boot || goto custom_exit
 
 :option_two
-sanboot  --no-describe --keep https://andychan.dedyn.io/mtboot.iso || goto failed
+initrd https://andychan.dedyn.io/mtboot.iso
+chain 
 
 :option_three
 echo Chains into another menu...
