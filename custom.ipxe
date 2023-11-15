@@ -18,14 +18,13 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernel http://path.to/vmlinuz
+kernal http://path.to/vmlinuz
 initrd http://path.to/initrd
 imgargs vmlinuz put_kernel_img_args_here
 boot || goto custom_exit
 
 :option_two
-kernel https://andychan.dedyn.io/mtboot.iso
-boot || goto custom_exit
+sanboot  --no-describe --keep https://andychan.dedyn.io/mtboot.iso || goto failed
 
 :option_three
 echo Chains into another menu...
